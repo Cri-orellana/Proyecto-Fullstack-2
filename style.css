@@ -1,0 +1,18 @@
+.col{
+    width: 200;
+}
+.card-img-top {
+    width: 90%;
+    height: 29vw;
+    object-fit: cover;
+}
+.navbar bg-body-tertiary{
+    width: 200;
+    position: relative;
+    background-color: #00ADB5;
+}
+.container-fluid{
+    position: relative;
+    left: -90px;
+    background-color: #00ADB5;
+}
