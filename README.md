@@ -15,11 +15,11 @@ Navegación Intuitiva: Una estructura de navegación clara que permite a los usu
 
 Inicio (index.html)
 
-Quiénes Somos (quienes-somos.html)
+Quiénes Somos (nosotros.html)
 
 Contacto (contacto.html)
 
-Login (login.html)
+Login (inicio_sesion.html)
 
 Integración con API Externa: La sección Api.html está preparada para conectarse a una API de TCG, permitiendo a los usuarios buscar y visualizar información sobre cartas específicas.
 
@@ -41,19 +41,20 @@ Este es un proyecto puramente front-end, por lo que no requiere de un servidor o
 
 Clona el repositorio:
 
-Bash
+
 
 git clone https://github.com/Cri-orellana/Proyecto-Fullstack-2.git
 Navega al directorio del proyecto:
 
-Bash
+
 
 cd Proyecto-Fullstack-2
 Abre el archivo index.html en tu navegador:
 Puedes hacer doble clic en el archivo o usar una extensión como "Live Server" en Visual Studio Code para una mejor experiencia de desarrollo.
 
-🖼️ Vistas del Proyecto
+
 ✒️ Autor
-Cristóbal Orellana
+Cristian Orellana
 
 GitHub: @Cri-orellana
+
