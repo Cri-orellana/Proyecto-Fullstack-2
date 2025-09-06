@@ -96,12 +96,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function vaciarCarrito() {
-            carrito = [];
-            dibujarCarrito();
-            totalCarrito.textContent = '$0';
-            cantidadCarrito.textContent = '0';
-        
-    }
+    carrito = [];
+    guardarCarritoEnLocalStorage(); // Esto lo deja vacío
+    dibujarCarrito();
+    totalCarrito.textContent = '$0';
+    contadorCarrito.textContent = '0';
+    localStorage.removeItem('carrito'); // Limpia el localStorage
+}
 
     const botonesAgregar = document.querySelectorAll('.add-to-cart-btn');
     botonesAgregar.forEach(boton => {
