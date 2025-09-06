@@ -97,11 +97,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function vaciarCarrito() {
     carrito = [];
-    guardarCarritoEnLocalStorage(); // Esto lo deja vacío
+    guardarCarritoEnLocalStorage();
     dibujarCarrito();
     totalCarrito.textContent = '$0';
     contadorCarrito.textContent = '0';
-    localStorage.removeItem('carrito'); // Limpia el localStorage
+    localStorage.removeItem('carrito'); 
 }
 
     const botonesAgregar = document.querySelectorAll('.add-to-cart-btn');
