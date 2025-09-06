@@ -85,6 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
         
         contadorCarrito.textContent = cantidadTotal;
         totalCarrito.textContent = `$${precioTotal.toLocaleString('es-CL')}`;
+        /*error en el contador de items del carrito, no se reinicia al apretrar vaciar*/ 
+        /*if (carrito.length === 0) {
+            contadorCarrito.textContent = '0';
+        }*/
     }
 
     function guardarCarritoEnLocalStorage() {
@@ -94,6 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
     function vaciarCarrito() {
             carrito = [];
             dibujarCarrito();
+            totalCarrito.textContent = '$0';
+            cantidadCarrito.textContent = '0';
         
     }
 
