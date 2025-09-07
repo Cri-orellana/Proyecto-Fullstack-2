@@ -11,7 +11,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-      <img src="C:\Users\crist\OneDrive\Escritorio\Proyecto Fullstack 2\img\Logo.png" alt="TCG Project" width="40" height="40" class="d-inline-block align-text-top" href="index.html"/>
+      <img src="C:\Users\crist\OneDrive\Escritorio\Proyecto Fullstack 2\img\Logo.png" alt="TCG Project" width="40" height="40" class="d-inline-block align-text-top"/>
       TCG Project
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,9 +41,18 @@
           <a class="nav-link active" aria-current="page" href="contacto.html">Contactanos</a>
         </li>
       </ul>
+      <div class="d-flex">
+            <a href="carrito.html" class="btn btn-outline-dark" style="display: flex; align-items: center;">
+                <i class="bi bi-cart-fill me-1"></i>
+                Carrito
+                <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart-count">0</span>
+            </a>
+        </div>
       <form class="d-flex" role="search">
         <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-        <button class="btn btn-outline-success" type="submit" href="inicio_sesion.html">Iniciar sesión</button>
+        <a href="inicio_sesion.html" class="btn" style="background:#940d0d; color:#fff; border:none; transition:background 0.2s, color 0.2s;">
+          Iniciar sesión
+        </a>
       </form>
     </div>
   </div>
