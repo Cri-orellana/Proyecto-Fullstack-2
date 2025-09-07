@@ -12,28 +12,46 @@
     crossorigin="anonymous">
 </head>
 <body>
-  <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"><img src="C:\Users\crist\OneDrive\Escritorio\Proyecto Fullstack 2\img\Logo.png" alt="TCG Project" width="40" height="40" class="d-inline-block align-text-top"/>TCG Project</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Pokémon</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Yu-Gi-Oh</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">OP</a></li>
-        </ul>
-        <div class="d-flex">
-            <form class="d-flex" role="search">
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
-                <button class="btn btn-outline-success" type="submit">Buscar</button>
-            </form>
-        </div>
-      </div>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+      <img src="C:\Users\crist\OneDrive\Escritorio\Proyecto Fullstack 2\img\Logo.png" alt="TCG Project" width="40" height="40" class="d-inline-block align-text-top" href="index.html"/>
+      TCG Project
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Productos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="productosDropdown">
+            <li><a class="dropdown-item" href="">Pokémon</a></li>
+            <li><a class="dropdown-item" href="">Yu-Gi-Oh</a></li>
+            <li><a class="dropdown-item" href="">One Piece</a></li>
+            <li><a class="dropdown-item" href="">Magic the gathering</a></li>
+            <li><a class="dropdown-item" href="">Mitos y leyendas</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="contacto.html">Contactanos</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit" href="inicio_sesion.html">Iniciar sesión</button>
+      </form>
     </div>
-  </nav>
+  </div>
+</nav>
     <form action="action_page.php" style="border:1px solid #ccc">
   <div class="container">
     <h1>Iniciar sesion</h1>
@@ -41,18 +59,24 @@
     <hr>
 
     <label for="email"><b>correo</b></label>
-    <input type="text" placeholder="ingrese su correo" name="email" required>
+    <input type="text" placeholder="ingrese su correo" name="email" >
 
     <label for="psw"><b>contraseña</b></label>
-    <input type="password" placeholder="ingrese su contraseña" name="psw" required>
+    <input type="password" placeholder="ingrese su contraseña" name="psw" >
 
     <label>
       <input type="checkbox" checked="checked" name="remember" style="margin-bottom:15px"> recordarme
     </label>
 
-    <div class="clearfix">
-      <button type="submit" class="loginbtn">Iniciar sesion</button>
+    <div style="margin-bottom: 15px;">
+      <a href="registro_usuario.html">Registrarme</a>
     </div>
+
+    <div class="clearfix">
+      <button type="button" class="btn btn-danger w-100" onclick="alert('Sesión iniciada')">Iniciar Sesión</button>
+    </div>
+
+
   </div>
 </form>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js" 

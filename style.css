@@ -164,49 +164,45 @@ hr {
   margin-bottom: 25px;
 }
 
-button {
-  background-color: #04AA6D;
-  color: white;
-  padding: 14px 20px;
-  margin: 8px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  opacity: 0.9;
-}
-
-button:hover {
-  opacity:1;
-}
-
+button,
+.btn,
+.btn-danger,
+.singupbtn,
 .cancelbtn {
-  padding: 14px 20px;
-  background-color: #f44336;
+  background-color: #940d0d !important;
+  color: #fff !important;
+  border: none !important;
+  transition: background 0.2s, color 0.2s;
 }
 
-.cancelbtn, .signupbtn {
-  float: left;
-  width: 50%;
-}
-
-.container {
-  padding: 16px;
-}
-
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-
-@media screen and (max-width: 300px) {
-  .cancelbtn, .signupbtn {
-    width: 100%;
-  }
+button:hover,
+.btn:hover,
+.btn-danger:hover,
+.singupbtn:hover,
+.cancelbtn:hover,
+button:focus,
+.btn:focus,
+.btn-danger:focus,
+.singupbtn:focus,
+.cancelbtn:focus {
+  background-color: #fff !important;
+  color: #940d0d !important;
+  border: 1px solid #940d0d !important;
 }
 
 /* inicio sesion*/
 .loginbtn {
   float: left;
   width: 100%;
+}
+/*para elboton inicio sesion*/
+.btn[style] {
+  background: #940d0d !important;
+  color: #fff !important;
+  border: none !important;
+  transition: background 0.2s, color 0.2s;
+}
+.btn[style]:hover, .btn[style]:focus {
+  background: #fff !important;
+  color: #940d0d !important;
 }
