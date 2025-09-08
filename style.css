@@ -268,3 +268,11 @@ body {font-family: sans-serif;
                 grid-template-columns: 1fr;
             }
         }
+        .franquicia img{
+          background-color: #ffff;
+          display: block;
+          margin: 0 auto;
+          width: 100%;
+          height: auto;
+
+        }
