@@ -59,17 +59,7 @@ Luego abre index.html en tu navegador:
 Doble clic sobre el archivo
 
 O usa Live Server en VSCode para desarrollo dinámico
-
-🖼 Capturas y GIFs
-
-Demostración de la interfaz:
-
-
-
-
-
-
-Tip: Usa GIFs mostrando la interacción en el formulario o la búsqueda de cartas para que el README sea más visual.
+
 
 🚀 Mejoras Futuras
 
