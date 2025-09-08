@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
+    <title>Categorías</title>
+    <style>
+        .categoria-card {
+            max-width: 350px;
+            margin: 20px auto;
+        }
+
+        #categorias {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+
+        }
+    </style>
+
+
+
+
+
+
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+      <img src="img\Logo.png" alt="TCG Project" width="40" height="40" class="d-inline-block align-text-top"/>
+      TCG Project
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Productos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="productosDropdown">
+            <li><a class="dropdown-item" href="categorias.html?franquicia=pokemon">Pokémon</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=yugioh">Yu-Gi-Oh</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=onepiece">One Piece</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=magic">Magic the gathering</a>
+            </li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=mitos">Mitos y leyendas</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="contacto.html">Contactanos</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+            <a href="carrito.html" class="btn btn-outline-dark" style="display: flex; align-items: center;">
+                <i class="bi bi-cart-fill me-1"></i>
+                Carrito
+                <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart-count">0</span>
+            </a>
+        </div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
+        <a href="inicio_sesion.html" class="btn" style="background:#940d0d; color:#fff; border:none; transition:background 0.2s, color 0.2s;">
+          Iniciar sesión
+        </a>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+    <h1 id="titulo"></h1>
+    <div id="categorias"></div>
+
+    <script>
+        const franquiciasNombres = {
+            yugioh: 'Yu-Gi-Oh!',
+            pokemon: 'Pokémon',
+            magic: 'Magic the Gathering',
+            mitos: 'Mitos y Leyendas',
+            onepiece: 'One Piece'
+        };
+
+        const categorias = [
+            { id: 'cartas', nombre: 'Sobres', imagen: 'https://tcgmatch.cl/images/bg-cards.png' },
+            { id: 'decks', nombre: 'Decks', imagen: 'https://m.media-amazon.com/images/I/91jvckmJNoL.jpg' },
+            { id: 'boxes', nombre: 'Cajas promocionales', imagen: 'https://m.media-amazon.com/images/I/81M2GcPdrcL._AC_SL1500_.jpg' },
+            { id: 'accesorios', nombre: 'Accesorios', imagen: 'https://http2.mlstatic.com/D_NQ_NP_815854-MCO70791203464_082023-O.webp' }
+        ];
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const franquicia = urlParams.get('franquicia');
+        const nombreFranquicia = franquiciasNombres[franquicia] || franquicia;
+
+
+        document.getElementById('titulo').textContent = `Categorías de ${nombreFranquicia} `;
+
+        const contenedor = document.getElementById('categorias');
+        categorias.forEach(cat => {
+            contenedor.innerHTML += `
+        <div class="categoria">
+          <a href="productos.html?franquicia=${franquicia}&tipo=${cat.id}"  >
+            <p style="justify-content: center;">
+                <div class="card" style="justify-content: center;">
+                    <img src="${cat.imagen}" class="card-img-top" alt="..." width="500" height="400">
+                    <div class="card-body">
+                    <h1 class="${cat.nombre}" style="justify-self: center;">${cat.nombre}</h1>
+                    
+                    </div>
+                </div>
+                
+            </p>
+            
+        </div>
+
+      `;
+        });
+    </script>
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q" crossorigin="anonymous">
+        </script>
+
+
+</body>
+
+</html>

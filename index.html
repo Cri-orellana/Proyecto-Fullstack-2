@@ -17,7 +17,7 @@
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="index.html">
-      <img src="C:\Users\crist\OneDrive\Escritorio\Proyecto Fullstack 2\img\Logo.png" alt="TCG Project" width="40" height="40" class="d-inline-block align-text-top"/>
+      <img src="img\Logo.png" alt="TCG Project" width="40" height="40" class="d-inline-block align-text-top"/>
       TCG Project
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -33,11 +33,13 @@
             Productos
           </a>
           <ul class="dropdown-menu" aria-labelledby="productosDropdown">
-            <li><a class="dropdown-item" href="">Pokémon</a></li>
-            <li><a class="dropdown-item" href="">Yu-Gi-Oh</a></li>
-            <li><a class="dropdown-item" href="">One Piece</a></li>
-            <li><a class="dropdown-item" href="">Magic the gathering</a></li>
-            <li><a class="dropdown-item" href="">Mitos y leyendas</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=pokemon">Pokémon</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=yugioh">Yu-Gi-Oh</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=onepiece">One Piece</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=magic">Magic the gathering</a>
+            </li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=mitos">Mitos y leyendas</a>
+            </li>
           </ul>
         </li>
         <li class="nav-item">
@@ -91,44 +93,47 @@
   <span class="visually-hidden">Siguiente</span>
 </button>
         </div>
+    <div class="grid-franquicias" id="franquicias"></div>
+    <script>
+        const franquicias = [
+            { id: 'yugioh', nombre: 'Yu-Gi-Oh!', imagen: 'https://th.bing.com/th/id/R.fc7e0dc9e6aa7098fad7d4c6cf12b4f9?rik=WDGP5hthzVRcXQ&riu=http%3a%2f%2fimg2.wikia.nocookie.net%2f__cb20131129140054%2fyugioh%2fimages%2f6%2f61%2fYugioh_Logo.png&ehk=rLjj1tbjHmMa1ijemgUXLtPrujJmOR0Zs8OZFj5dIag%3d&risl=&pid=ImgRaw&r=0' },
+            { id: 'magic', nombre: 'Magic: The Gathering', imagen: 'https://mnd-assets.mynewsdesk.com/image/upload/c_fill,dpr_auto,f_auto,g_sm,q_auto:good,w_746/v85jyye7uyoqc851m514kf' },
+            { id: 'pokemon', nombre: 'Pokémon TCG', imagen: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pok%C3%A9mon_Trading_Card_Game_logo.svg/1200px-Pok%C3%A9mon_Trading_Card_Game_logo.svg.png' },
+            { id: 'mitos', nombre: 'Mitos y leyendas', imagen: 'https://static.wikia.nocookie.net/myl-tcg/images/f/f4/Myl-logo1-sf.png/revision/latest?cb=20240717144516&path-prefix=es' },
+            { id: 'onepiece', nombre: 'One Piece TCG', imagen: 'https://factorycardstcg.com/cdn/shop/collections/ONE_PIECE_LOGO.webp?v=1756577432' }
 
-<div class="container mb-4">
-  <div class="row justify-content-center mb-2">
-    <div class="col-4 col-md-2 d-flex justify-content-center">
-      <a href="#">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Pok%C3%A9mon_Trading_Card_Game_logo.svg/1200px-Pok%C3%A9mon_Trading_Card_Game_logo.svg.png" alt="Pokemon" width="150" height="80">
-      </a>
-    </div>
-    <div class="col-4 col-md-2 d-flex justify-content-center">
-      <a href="#">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR5MhMkXmi1AS1u9eyJcDaazY0lBQxqcaF0wA&s" alt="Yu-Gi-Oh!" width="150" height="80">
-      </a>
-    </div>
-    <div class="col-4 col-md-2 d-flex justify-content-center">
-      <a href="#">
-        <img src="https://static.wixstatic.com/media/57a197_e334385962ac4203abe6390f3b6ff4c6~mv2.png/v1/fill/w_560,h_314,al_c,q_85,usm_0.66_1.00_0.01,enc_auto/ONE%20PIECE%20LOGO.png" alt="One Piece" width="150" height="80">
-      </a>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <div class="col-6 col-md-2 d-flex justify-content-center">
-      <a href="#">
-        <img src="https://mnd-assets.mynewsdesk.com/image/upload/c_fill,dpr_auto,f_auto,g_sm,q_auto:good,w_746/v85jyye7uyoqc851m514kf" alt="Digimon" width="150" height="80">
-      </a>
-    </div>
-    <div class="col-6 col-md-2 d-flex justify-content-center">
-      <a href="#">
-        <img src="https://static.wikia.nocookie.net/myl-tcg/images/f/f4/Myl-logo1-sf.png/revision/latest?cb=20240717144516&path-prefix=es" alt="MyL" width="150" height="80">
-      </a>
-    </div>
-  </div>
-</div>
+
+        ];
+
+        const contenedor = document.getElementById('franquicias');
+        franquicias.forEach(franquicia => {
+            contenedor.innerHTML += `
+            <div class="franquicia">
+            <p class="boton_index" style="justify-self: center;">
+                <button class="button">
+                    <a href="categorias.html?franquicia=${franquicia.id}"> 
+                    <img src="${franquicia.imagen}" alt="${franquicia.nombre}"
+                            width="400" height="270"> 
+                    </a>
+                </button>
+            </p>
+
+           
+            
+            
+            </div>
+
+            `;
+        });
+
+
+    </script>
 
 <div class="container mb-3">
   <div class="card shadow-sm" style="border: 3px solid #940d0d;">
     <div class="card-body text-center" style="background: #940d0d22; color: #940d0d; border-bottom: 3px solid #940d0d;">
       <h3 class="mb-0 fw-bold" style="color: #940d0d;">
-        <img src="C:\Users\crist\OneDrive\Escritorio\Proyecto Fullstack 2\img\Logo.png" alt="TCG Project" width="32" height="32" class="me-2 align-middle"/>
+        <img src="img\Logo.png" alt="TCG Project" width="32" height="32" class="me-2 align-middle"/>
         Novedades en la tienda
       </h3>
     </div>
@@ -137,10 +142,9 @@
 
   <div class="container mb-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
-      
       <div class="col">
         <div class="card h-100">
-          <img src="https://home.ripley.cl/store/Attachment/WOP/D175/2000391690345/2000391690345-1.jpg" class="card-img-top" alt="Mazo Pokémon Mewtwo">
+          <a href="detalle_producto.html?productos=poke4"><img src="https://home.ripley.cl/store/Attachment/WOP/D175/2000391690345/2000391690345-1.jpg" class="card-img-top" alt="Mazo Pokémon Mewtwo"></a>
           <div class="card-body">
             <h5 class="card-title">Mazo cartas Mewtwo</h5>
             <p class="card-text text-success fw-bold">$19.990</p>
@@ -154,7 +158,7 @@
       
       <div class="col">
         <div class="card h-100">
-          <img src="https://cdnx.jumpseller.com/zona-x-gamers/image/30066904/thumb/719/719?1670871759" class="card-img-top" alt="Mazo Yu-Gi-Oh! Mundo Oscuro">
+          <a href="detalle_producto.html?productos=yugi9"><img src="https://cdnx.jumpseller.com/zona-x-gamers/image/30066904/thumb/719/719?1670871759" class="card-img-top" alt="Mazo Yu-Gi-Oh! Mundo Oscuro"></a>
           <div class="card-body">
             <h5 class="card-title">Mazo Estructurado Mundo Oscuro</h5>
             <p class="card-text text-success fw-bold">$14.990</p>
@@ -168,10 +172,10 @@
       
       <div class="col">
         <div class="card h-100">
-          <img src="https://www.magicsur.cl/27862-thickbox_default/one-piece-card-game-smoker-starter-deck-st-19.jpg" class="card-img-top" alt="Mazo One Piece Smoker">
+          <a href="detalle_producto.html?productos=onep1"><img src='https://i.ebayimg.com/images/g/TI0AAeSwKMdodPk9/s-l1600.webp' class="card-img-top" alt="Booster Pack - Legacy of the Master"></a>
           <div class="card-body">
-            <h5 class="card-title">Mazo cartas Smoker</h5>
-            <p class="card-text text-success fw-bold">$14.990</p>
+            <h5 class="card-title">Booster Pack - Legacy of the Master</h5>
+            <p class="card-text text-success fw-bold">$5000
             <button class="btn btn-sm btn-danger w-100 mt-2">Añadir al carrito</button>
           </div>
           <div class="card-footer">

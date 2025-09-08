@@ -206,3 +206,65 @@ button:focus,
   background: #fff !important;
   color: #940d0d !important;
 }
+
+body {font-family: sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0px;
+            background: #f4f4f4;
+        }
+
+        h1 {
+            margin-bottom: 0px;
+        }
+
+        .grid-franquicias {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            justify-items: center;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .franquicia {
+
+            padding: 0px;
+            border-radius: 0px;
+            box-shadow: 0 0px 0px rgba(0, 0, 0, 0.1);
+            width: 400px;
+            transition: transform 0.2s;
+        }
+
+        .franquicia:hover {
+            transform: scale(1);
+        }
+
+        .franquicia img {
+            width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+
+        /* Centrar la segunda fila con 2 elementos */
+        .grid-franquicias>.franquicia:nth-child(4),
+        .grid-franquicias>.franquicia:nth-child(5) {
+            grid-column: span 0.5;
+        }
+
+        .grid-franquicias>.franquicia:nth-child(4) {
+            grid-column-start: 1;
+        }
+
+        /* Responsive para móviles */
+        @media (max-width: 768px) {
+            .grid-franquicias {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid-franquicias {
+                grid-template-columns: 1fr;
+            }
+        }

@@ -1,11 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-LN+7fdVzj6u52u30Kp6M/trliBMCMKTyK833zpbD+pXdCLuTusPj697FH4R/5mcr" crossorigin="anonymous">
 </head>
+
 <body>
-    
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+      <img src="img\Logo.png" alt="TCG Project" width="40" height="40" class="d-inline-block align-text-top"/>
+      TCG Project
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="productosDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Productos
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="productosDropdown">
+            <li><a class="dropdown-item" href="categorias.html?franquicia=pokemon">Pokémon</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=yugioh">Yu-Gi-Oh</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=onepiece">One Piece</a></li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=magic">Magic the gathering</a>
+            </li>
+            <li><a class="dropdown-item" href="categorias.html?franquicia=mitos">Mitos y leyendas</a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="nosotros.html">Nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="contacto.html">Contactanos</a>
+        </li>
+      </ul>
+      <div class="d-flex">
+            <a href="carrito.html" class="btn btn-outline-dark" style="display: flex; align-items: center;">
+                <i class="bi bi-cart-fill me-1"></i>
+                Carrito
+                <span class="badge bg-dark text-white ms-1 rounded-pill" id="cart-count">0</span>
+            </a>
+        </div>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"/>
+        <a href="inicio_sesion.html" class="btn" style="background:#940d0d; color:#fff; border:none; transition:background 0.2s, color 0.2s;">
+          Iniciar sesión
+        </a>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+
+
+    <div id="detalle-producto" class="container mt-5"></div>
+
+    <script>
+        const productos = [
+            // Yu-Gi-Oh!
+            { id: "yugi1", franquicias: 'yugioh', tipo: 'cartas', nombre: 'Booster Pack - DOOM OF DIMENSIONS', precio: 6000, imagen: 'https://ms.yugipedia.com//thumb/5/59/DOOD-BoosterEN.png/257px-DOOD-BoosterEN.png', descripcion: 'Sobre de expansión Duelist Alliance para Yu-Gi-Oh!.' },
+            { id: "yugi2", franquicias: 'yugioh', tipo: 'cartas', nombre: 'Booster Pack - Invasion del caos', precio: 5000, imagen: 'https://www.yugioh-card.com/eu/wp-content/uploads/2023/02/IOC-Foil-SP.webp', descripcion: 'Sobre Legendary Duelists con cartas exclusivas.' },
+            { id: "yugi3", franquicias: 'yugioh', tipo: 'decks', nombre: 'Starter Deck: Yugi Reloaded', precio: 15000, imagen: 'https://static.wikia.nocookie.net/yugioh/images/1/1d/YSYR-DeckPT.png/revision/latest?cb=20140602040327', descripcion: 'Deck inicial de Yugi, ideal para principiantes.' },
+            { id: "yugi4", franquicias: 'yugioh', tipo: 'decks', nombre: 'Structure Deck: Cyber Strike', precio: 18000, imagen: 'https://static.wikia.nocookie.net/yugioh/images/4/4c/SDCS-DeckEN.png/revision/latest?cb=20210430171614', descripcion: 'Deck estructurado Cyber Strike para estrategias avanzadas.' },
+            { id: "yugi5", franquicias: 'yugioh', tipo: 'boxes', nombre: 'Maximum Gold Box', precio: 50000, imagen: 'https://static.wikia.nocookie.net/yugioh/images/6/6e/MAGO-BoosterFR.png/revision/latest?cb=20210429214758', descripcion: 'Caja promocional con cartas doradas y exclusivas.' },
+            { id: "yugi6", franquicias: 'yugioh', tipo: 'boxes', nombre: 'Legendary Collection Box', precio: 50000, imagen: 'https://www.yugioh-card.com/en/wp-content/uploads/2022/12/LC1_25thAnnivEdition_550.png', descripcion: 'Colección legendaria con cartas clásicas y raras.' },
+            { id: "yugi7", franquicias: 'yugioh', tipo: 'accesorios', nombre: 'Fundas Dark Magician', precio: 6000, imagen: 'https://http2.mlstatic.com/D_NQ_NP_694664-MLC43848147400_102020-O.webp', descripcion: 'Fundas protectoras con diseño de Dark Magician.' },
+            { id: "yugi8", franquicias: 'yugioh', tipo: 'accesorios', nombre: 'Tapete Quarter century Kaiba & Yugi', precio: 20000, imagen: 'https://nosolomerch.com/8936-large_default/yu-gi-oh-playmat-tapete-yugi-kaiba-25th-quarter-century-konami.jpg', descripcion: 'Tapete de juego conmemorativo por los 25 años de Yu-Gi-Oh!' },
+            { id: "yugi9", franquicias: 'yugioh', tipo: 'decks', nombre: 'Structure Deck: Mundo Oscuro', precio: 15000, imagen: 'https://cdnx.jumpseller.com/zona-x-gamers/image/30066904/thumb/719/719?1670871759', descripcion: 'Deck estructurado de expansion mundo oscuro.' },
+
+            // Magic the Gathering
+            { id: "magi1", franquicias: 'magic', tipo: 'cartas', nombre: 'Booster Pack - Edge of Eternities', precio: 5000, imagen: 'https://overlordgames.co.uk/cdn/shop/files/KCVuq3yl7rMIMW5VDW25LarOv__22960.jpg?v=1756901798&width=600', descripcion: 'Sobre edge of eternities para Magic the Gathering.' },
+            { id: "magi2", franquicias: 'magic', tipo: 'cartas', nombre: 'Booster Pack - Zendikar Rising', precio: 4000, imagen: 'https://images-ihrysko-cdn.rshop.sk/lg/products/a344f3211fbd2e1ed34437675cb3280e.jpg', descripcion: 'Sobre Zendikar Rising con cartas de aventura.' },
+            { id: "magi3", franquicias: 'magic', tipo: 'decks', nombre: 'Commander Deck: Reap the Tides', precio: 30000, imagen: 'https://magicprecons.com/img/decks/reap-the-tides.png', descripcion: 'Deck Commander Reap the Tides, listo para jugar.' },
+            { id: "magi4", franquicias: 'magic', tipo: 'decks', nombre: 'Starter Deck: Core Set 2021', precio: 12000, imagen: 'https://tcgladen.ch/wp-content/uploads/2021/01/MTGM21_EN_SSK_02_01.png', descripcion: 'Deck inicial Core Set 2021 para nuevos jugadores.' },
+            { id: "magi5", franquicias: 'magic', tipo: 'boxes', nombre: 'Bundle Box - Theros Beyond Death', precio: 40000, imagen: 'https://www.bazaargames.nl/images/products/480x427/bu_thb_2.jpg', descripcion: 'Caja Bundle Theros Beyond Death con sobres y accesorios.' },
+            { id: "magi6", franquicias: 'magic', tipo: 'boxes', nombre: 'Booster Box - Innistrad Midnight Hunt', precio: 110000, imagen: 'https://m.media-amazon.com/images/I/81LrUxau4XL._AC_SX679_.jpg', descripcion: 'Caja Booster Innistrad Midnight Hunt para coleccionistas.' },
+            { id: "magi7", franquicias: 'magic', tipo: 'accesorios', nombre: 'Fundas Planeswalker', precio: 7000, imagen: 'https://http2.mlstatic.com/D_NQ_NP_951576-MLC76735865493_052024-O-protector-para-cartas-magic-planeswalker-symbol-x80.webp', descripcion: 'Fundas protectoras con arte de Planeswalker.' },
+            { id: "magi8", franquicias: 'magic', tipo: 'accesorios', nombre: 'Caja Deck Box', precio: 8000, imagen: 'https://i.ebayimg.com/images/g/CFwAAOSwMytmVgnT/s-l1600.webp', descripcion: 'Caja para guardar y proteger tus decks.' },
+
+            // Pokémon
+            { id: "poke1", franquicias: 'pokemon', tipo: 'cartas', nombre: 'Booster Pack - Scarlet & Violet - White Flare', precio: 4000, imagen: 'https://www.pokemoncenter.com/images/DAMRoot/High/10015/P11002_10-10035-115_02.jpg', descripcion: 'Sobre de cartas Pokémon Sword & Shield.' },
+            { id: "poke2", franquicias: 'pokemon', tipo: 'cartas', nombre: 'Booster Pack - Evolving Skies', precio: 4000, imagen: 'https://www.pokemoncenter.com/images/DAMRoot/High/10000/P7370_699-81877_02.jpg', descripcion: 'Sobre Evolving Skies con cartas de expansión.' },
+            { id: "poke3", franquicias: 'pokemon', tipo: 'decks', nombre: 'Battle Deck: Charizard', precio: 16000, imagen: 'https://archives.bulbagarden.net/media/upload/1/14/SWSH4_Charizard_Deck.jpg', descripcion: 'Battle Deck de Charizard, listo para jugar.' },
+            { id: "poke4", franquicias: 'pokemon', tipo: 'decks', nombre: 'Pokémon GO Mewtwo V Battle Deck', precio: 16000, imagen: 'https://www.pokemoncenter.com/images/DAMRoot/High/10000/P7782_699-17148_01.jpg', descripcion: 'Battle Deck de Mewtwo, ideal para batallas.' },
+            { id: "poke5", franquicias: 'pokemon', tipo: 'boxes', nombre: 'Elite Trainer Box - Brilliant Stars', precio: 55000, imagen: 'https://mastercoins.com.au/wp-content/uploads/2022/03/Brilliant-Stars-Pokemon-Center-Elite-Trainer-Box.jpg', descripcion: 'Caja Elite Trainer Brilliant Stars con accesorios y sobres.' },
+            { id: "poke6", franquicias: 'pokemon', tipo: 'boxes', nombre: 'Premium Collection Box - Pikachu V', precio: 60000, imagen: 'https://tcgplayer-cdn.tcgplayer.com/product/527796_in_600x600.jpg', descripcion: 'Caja Premium Collection Pikachu V con cartas exclusivas.' },
+            { id: "poke7", franquicias: 'pokemon', tipo: 'accesorios', nombre: 'Fundas Pikachu', precio: 6000, imagen: 'https://www.vytcomputacion.cl/wp-content/uploads/2025/07/fundas-standard-pikachu-2019-pokemon-65-fundas-ultra-pro.webp', descripcion: '65 Fundas protectoras con diseño de Pikachu.' },
+            { id: "poke8", franquicias: 'pokemon', tipo: 'accesorios', nombre: 'Caja Deck Pokéball', precio: 10000, imagen: 'https://www.toysonfire.ca/i/70471_208f0f6/pokemon-deck-box-alcove-flip-pokeball-70471.jpg', descripcion: 'Caja Pokéball para guardar tus cartas y decks.' },
+
+            // Mitos y Leyendas
+            { id: "mito1", franquicias: 'mitos', tipo: 'cartas', nombre: 'Booster Pack - Hijos de Daana', precio: 3000, imagen: 'https://mesaredondatcg.cl/wp-content/uploads/2024/10/5-1.jpg', descripcion: 'Sobre de expansión Hijos de Daana para Mitos y Leyendas.' },
+            { id: "mito2", franquicias: 'mitos', tipo: 'cartas', nombre: 'Booster Pack - Valhalla', precio: 3000, imagen: 'https://dojiw2m9tvv09.cloudfront.net/68889/product/F_display-1024x10242x6648.png?264&time=1728096289', descripcion: 'Expasion de Mitos y leyendas basada en la cultura Nordica, Valhalla con cartas mitológicas.' },
+            { id: "mito3", franquicias: 'mitos', tipo: 'decks', nombre: 'Starter Deck: Dragón', precio: 14000, imagen: 'https://casamyl.cl/cdn/shop/files/racialdragonpb_1024x1024@2x.png?v=1717005161', descripcion: 'Deck inicial Dragón para comenzar a jugar.' },
+            { id: "mito4", franquicias: 'mitos', tipo: 'decks', nombre: 'Starter Deck: Guerrero', precio: 1400, imagen: 'https://dojiw2m9tvv09.cloudfront.net/68889/product/F_racial-guerrero3598.png?264&time=1725294804', descripcion: 'Deck Guerrero con cartas poderosas.' },
+            { id: "mito5", franquicias: 'mitos', tipo: 'boxes', nombre: 'Caja Promocional - Furia', precio: 35000, imagen: 'https://http2.mlstatic.com/D_NQ_NP_833099-MLA48725433204_012022-O.jpg', descripcion: 'Caja promocional Furia con cartas exclusivas.' },
+            { id: "mito6", franquicias: 'mitos', tipo: 'boxes', nombre: 'Caja Promocional - Ragnarok', precio: 38000, imagen: 'https://blog.myl.cl/wp-content/uploads/2019/10/Concept-Coleccion-Completa-ragnarok-1024x844.jpg', descripcion: 'Caja promocional Ragnarok para coleccionistas.' },
+            { id: "mito7", franquicias: 'mitos', tipo: 'accesorios', nombre: 'Fundas Mitos y Leyendas, Wyvern de Sangre', precio: 5000, imagen: 'https://topdeck.cl/cdn/shop/files/002.png?v=1733316719&width=600', descripcion: 'Fundas protectoras con arte de Mitos y Leyendas.' },
+            { id: "mito8", franquicias: 'mitos', tipo: 'accesorios', nombre: 'Tapete Mitos y Leyendas', precio: 18000, imagen: 'https://http2.mlstatic.com/D_NQ_NP_640224-MLC42508121564_072020-O.jpg', descripcion: 'Tapete de juego con ilustraciones de leyendas.' },
+
+            // One Piece
+            { id: "onep1", franquicias: 'onepiece', tipo: 'cartas', nombre: 'Booster Pack - Legacy of the Master', precio: 5000.0, imagen: 'https://i.ebayimg.com/images/g/TI0AAeSwKMdodPk9/s-l1600.webp', descripcion: 'Sobre Legacy of the Master para el juego de cartas One Piece.' },
+            { id: "onep2", franquicias: 'onepiece', tipo: 'cartas', nombre: 'Booster Pack - Paramount War', precio: 5000, imagen: 'https://cdn.shoplightspeed.com/shops/622104/files/58911450/bandai-one-piece-cg-paramount-war-booster-pack-lim.jpg', descripcion: 'Sobre Paramount War con cartas de la saga.' },
+            { id: "onep3", franquicias: 'onepiece', tipo: 'decks', nombre: 'Starter Deck: Straw Hat Crew', precio: 20000, imagen: 'https://files.cardgameshop.be/cache/products/images/cache_1000x1000/101339c148f20ea67e7c2eed6ec7e6dde8179eba.jpeg', descripcion: 'Deck inicial de la tripulación de Sombrero de Paja.' },
+            { id: "onep4", franquicias: 'onepiece', tipo: 'decks', nombre: 'Starter Deck: Worst Generation', precio: 20000, imagen: 'https://tse1.mm.bing.net/th/id/OIP.XgaFByj6cwb3Kcd_2uW0FgAAAA?r=0&cb=thfvnext&rs=1&pid=ImgDetMain&o=7&rm=3', descripcion: 'Deck Worst Generation para estrategias únicas.' },
+            { id: "onep5", franquicias: 'onepiece', tipo: 'boxes', nombre: 'Box - Romance Dawn', precio: 120000, imagen: 'https://dacardworld1.imgix.net/745759_001.jpg?auto=format%2Ccompress&fm=jpg&h=1800&ixlib=php-3.3.1&w=1800&s=cefaa281b70efaaa014e480e56f708a7', descripcion: 'Caja Romance Dawn con sobres y cartas especiales.' },
+            { id: "onep6", franquicias: 'onepiece', tipo: 'boxes', nombre: 'Box - Paramount War', precio: 130000, imagen: 'https://media.karousell.com/media/photos/products/2023/6/23/op02_one_piece_paramount_war_b_1687527671_ae48b8aa_progressive.jpg', descripcion: 'Caja Paramount War para coleccionistas de One Piece.' },
+            { id: "onep7", franquicias: 'onepiece', tipo: 'accesorios', nombre: 'Fundas Luffy', precio: 8000, imagen: 'https://www.monodejuegos.shop/wp-content/uploads/2024/01/fundas-oficiales-one-piece-tcg-luffy-gear-5.webp', descripcion: 'Fundas protectoras con diseño de Luffy.' },
+            { id: "onep8", franquicias: 'onepiece', tipo: 'accesorios', nombre: 'Tapete One Piece', precio: 22000, imagen: 'https://media.karousell.com/media/photos/products/2023/12/16/one_piece_tcg_playmat_3_1702706199_996a645a_progressive.jpg', descripcion: 'Tapete de juego con arte de One Piece.' },
+        ];
+
+        const params = new URLSearchParams(window.location.search);
+        const idProducto = params.get('productos');
+
+        const producto = productos.find(p => p.id === idProducto);
+        const contenedor = document.getElementById('detalle-producto');
+
+        if (!producto) {
+            contenedor.innerHTML = '<p>Producto no encontrado</p>';
+        } else {
+            contenedor.innerHTML = `
+        <div class="row align-items-center">
+            <div class="col-md-5 text-center">
+                <img src="${producto.imagen}" alt="${producto.nombre}" style="max-width:100%; max-height:350px; object-fit:contain; border-radius:10px; background:#fff;">
+            </div>
+            <div class="col-md-7">
+                <h1>${producto.nombre}</h1>
+                <p>${producto.descripcion}</p>
+                <p class="fw-bold">Precio: $${producto.precio}</p>
+                <button class="btn btn-primary" onclick="agregarAlCarrito('${producto.id}')">Agregar al carrito</button>
+            </div>
+        </div>
+        `;
+        }
+
+        function agregarAlCarrito(id) {
+            let carrito = JSON.parse(localStorage.getItem('carrito')) || [];
+            carrito.push(id); // También podrías guardar cantidad
+            localStorage.setItem('carrito', JSON.stringify(carrito));
+            alert("Producto agregado al carrito");
+        }
+    </script>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ndDqU0Gzau9qJ1lfW4pNLlhNTkCfHzAVBReH9diLvGRem5+R9g2FzA8ZGN954O5Q"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
